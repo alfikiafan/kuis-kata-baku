@@ -49,6 +49,19 @@ font-size: 1.1rem;
 line-height: 1.5rem;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  width: 150px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 2rem;
+}
+
 .loading {
   position: absolute;
   top: 50%;
@@ -153,7 +166,7 @@ box-shadow: var(--shadow-md);
 }
 
 .start {
-  margin-top: 5rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
