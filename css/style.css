@@ -19,7 +19,7 @@
   --radius: 1.5rem;
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --footerHeight: 80px;
+  --footerHeight: 50px;
 }
 
 body {
@@ -132,6 +132,7 @@ box-shadow: var(--shadow-md);
 }
 
 .answer-text {
+  margin-top: 1rem;
   opacity: 1;
   font-weight: bold;
 }

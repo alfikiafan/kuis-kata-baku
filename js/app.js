@@ -75,6 +75,7 @@ $(document).ready(function() {
     }
 
     function answer(e) {
+        const correctAnswer = baku[lastIndex];
         if ($(e.currentTarget).text() === baku[lastIndex]) {
             const answerString = `Jawaban Anda, "${$(e.currentTarget).text()}", benar!`;
             answerText.text(answerString);
@@ -89,9 +90,11 @@ $(document).ready(function() {
             }
             setQuestions();
         } else {
-            console.log('clicked on wrong answer!');
             const answerString = `Jawaban Anda, "${$(e.currentTarget).text()}", salah!`;
+            const keyAnswerString = `Jawaban yang benar adalah "${correctAnswer}".`;
             answerText.text(answerString);
+            answerText.append($('<br>'));
+            answerText.append($('<span>').text(keyAnswerString));
             answerText.removeClass('right');
             answerText.addClass('wrong');
             wrongCount += 1;
