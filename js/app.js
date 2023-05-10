@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() { 
 
 	let tidakBaku = [];
 	let baku = [];
@@ -11,7 +11,7 @@ $(document).ready(function() {
 		.then(jsonData => {
 			tidakBaku = Object.keys(jsonData);
 			baku = Object.values(jsonData);
-			setTimeout(function() {
+			setTimeout(() => {
                 loading.hide();
                 setQuestions();
                 mainContainer.show();
@@ -36,7 +36,7 @@ $(document).ready(function() {
 	const scoreDisplay = $('#score');
 	const restartBtn = $('.btn-restart');
 
-	startButton.on('click', function() {
+	startButton.on('click', () => {
 		start.hide();
 		kuis.show();
 	});
@@ -52,7 +52,7 @@ $(document).ready(function() {
 	let wrongCount = 0;
 	let sound = true;
 
-	soundButton.on('click', function() {
+	soundButton.on('click', () => {
 		const icon = soundButton.find('i');
 		icon.toggleClass('fa-volume-up fa-volume-mute');
 		sound = !sound;
@@ -94,7 +94,7 @@ $(document).ready(function() {
 		}
 	}
 
-	function resetVariables() {
+	const resetVariables = () => {
 		lastIndex = -1;
 		index = -1;
 		questionCount = 1;
@@ -111,10 +111,10 @@ $(document).ready(function() {
 		scoreDisplay.text(score);
 		overlay.show();
 	}
-
-	function hidePopup() {
+	
+	const hidePopup = () => {
 		overlay.hide();
-	}
+	};
 
 	function answer(e) {
 		const correctAnswer = baku[lastIndex];

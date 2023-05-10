@@ -2,10 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/svg" href="./assets/icon.svg">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style.css" title="Stylesheet">
         <script src="https://kit.fontawesome.com/3343256dc4.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
         <script src="./js/app.js"></script>
@@ -16,24 +15,24 @@
             <div class="loading">
                 <p>Loading</p>
             </div>
-            <div class="main-container" style="display: none;">
+            <div class="main-container">
                 <h1>Kuis Kata Baku</h1>
                 <div class="start">
                     <div class="logo">
                         <img src="./assets/icon.svg" alt="logo">
                       </div>
-                    <button class="btn btn-start">Mulai Kuis</button>
+                    <button type="button" class="btn btn-start" title="mulai kuis">Mulai Kuis</button>
                     <p class="instruction">Pilihlah jawaban yang benar dari dua pilihan kata baku yang akan muncul di layar</p>
                 </div>
-                <div class="kuis" style="display: none;">
+                <div class="kuis">
                     <p class="question-number"></p>
                     <div class="btn-container">
-                        <button class="btn btn-1"></button>
-                        <button class="btn btn-2"></button>
+                        <button type="button" class="btn btn-1" title="pilihan 1"></button>
+                        <button type="button" class="btn btn-2" title="pilihan 2"></button>
                     </div>
                     <div class="option-container">
-                        <button class="btn-sound"><i class="fas fa-volume-up"></i></button>
-                        <button class="btn-reset"><i class="fas fa-arrows-rotate"></i></button>
+                        <button type="button" class="btn-sound" title="tombol suara"><i class="fas fa-volume-up"></i></button>
+                        <button type="button" class="btn-reset" title="reset kuis"><i class="fas fa-arrows-rotate"></i></button>
                     </div>
                     <p class="answer-text">Selamat belajar!</p>
                     <div class="stats">
@@ -51,13 +50,13 @@
                     <div class="popup">
                     <h2>Hasil Kuis</h2>
                     <p>Skor kamu: <span id="score"></span></p>
-                    <button class="btn btn-restart">Ulangi Kuis</button>
+                    <button type="button" class="btn btn-restart">Ulangi Kuis</button>
                     </div>
                 </div>
             </div>
         </main>
         <footer class="footer">
-            <p>Kuis Kata Baku © Alfiki 2023.<span style="display: inline-block; width: 15px;"></span><a style="text-align: right;" href="https://github.com/alfikiafan/Kuis-Kata-Baku">GitHub</a><span style="display: inline-block; width: 15px;"></span><a style="text-align: right;" href="mailto:alfiki.diastama@gmail.com?subject=Kesalahan%20Kata%20(Kuis%20Kata%20Baku)">Laporkan Kesalahan</a></p>
+            <p>Kuis Kata Baku © Alfiki 2023.<span class="space"></span><a href="https://github.com/alfikiafan/Kuis-Kata-Baku">GitHub</a><span class="space"></span><a href="mailto:alfiki.diastama@gmail.com?subject=Kesalahan%20Kata%20(Kuis%20Kata%20Baku)">Laporkan Kesalahan</a></p>
           </footer>          
     </body> 
 </html>
