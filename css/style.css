@@ -28,6 +28,15 @@ font-family: var(--font);
 letter-spacing: 0.05rem;
 }
 
+main {
+  width: 100vw;
+  min-height: calc(100vh - var(--footerHeight));
+  display: grid;
+  place-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
 color: var(--headingColor);
 text-align: center;
@@ -115,15 +124,6 @@ transform-origin: left center;
 
 .underline:hover::before {
 transform: scaleX(1);
-}
-
-.hero {
-width: 100vw;
-min-height: calc(100vh - var(--footerHeight));
-display: grid;
-place-items: center;
-padding-top: 2rem;
-padding-bottom: 2rem;
 }
 
 .btn-container {
@@ -243,7 +243,7 @@ box-shadow: var(--shadow-md);
 .popup {
   background-color: var(--backgroundColor);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   text-align: center;
   position: absolute;
   top: 50%;
