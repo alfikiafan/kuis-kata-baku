@@ -20,9 +20,10 @@
             <h2>Kuis Kata Baku</h2>
             <div class="start">
                 <button class="btn btn-start">Mulai Kuis</button>
+                <p class="instruction">Pilihlah jawaban yang benar dari dua pilihan kata baku yang akan muncul di layar</p>
             </div>
             <div class="kuis" style="display: none;">
-                <p class="main-paragraph">Pilihlah jawaban yang benar dari kedua tombol di bawah ini!</p>
+                <p class="main-paragraph"></p>
                 <div class="btn-container">
                     <button class="btn btn-1"></button>
                     <button class="btn btn-2"></button>
@@ -42,6 +43,14 @@
                     </div>
                 </div>
             </div>
+            <div class="overlay">
+                <div class="popup">
+                  <h2>Hasil Kuis</h2>
+                  <p>Skor kamu: <span id="score"></span></p>
+                  <button class="btn btn-restart">Ulangi Kuis</button>
+                </div>
+              </div>
+              
         </main>
         <footer class="footer">
             <p>Kuis Kata Baku, oleh Alfiki</p>

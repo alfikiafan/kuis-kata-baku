@@ -3,20 +3,15 @@ $(document).ready(function() {
     let tidakBaku = [];
     let baku = [];
 
+    const loading = $('.loading');
+    const mainContainer = $('.main-container');
+
     // mengambil file JSON menggunakan Fetch API
     fetch('https://raw.githubusercontent.com/alfikiafan/Kata-Baku/master/data/data.json')
     .then(response => response.json())
     .then(jsonData => {
-        // mendapatkan array kunci dan nilai dari objek JSON
         tidakBaku = Object.keys(jsonData);
         baku = Object.values(jsonData);
-
-        // mencetak array kunci dan nilai
-        console.log(tidakBaku);
-        console.log(baku);
-
-        const loading = $('.loading');
-        const mainContainer = $('.main-container');
 
         loading.hide();
         setQuestions();
@@ -27,6 +22,10 @@ $(document).ready(function() {
     const startButton = $('.btn-start');
     const start = $('.start');
     const kuis = $('.kuis');
+    const mainParagraph = $('.main-paragraph');
+    const overlay = $('.overlay');
+    const scoreDisplay = $('#score');
+    const restartBtn = $('.btn-restart');
 
     startButton.on('click', function() {
         start.hide();
@@ -43,6 +42,8 @@ $(document).ready(function() {
 
     let lastIndex = -1;
     let index = -1;
+    let questionCount = -1;
+    let score = 0;
 
     let rightCount = 0;
     let wrongCount = 0;
@@ -72,16 +73,47 @@ $(document).ready(function() {
             $('.btn-2').text(baku[index]);
         }
         lastIndex = index;
+        questionCount++;
+        mainParagraph.text(`Soal ${questionCount} dari 20`);
     }
+
+    function resetVariables() {
+        lastIndex = -1;
+        index = -1;
+        questionCount = -1;
+        score = 0;
+    
+        rightCount = 0;
+        wrongCount = 0;
+        answerText.text('');
+        numRightAnswers.text(rightCount);
+        numWrongAnswers.text(wrongCount);
+    }
+
+    function showPopup(score) {
+        scoreDisplay.text(score);
+        overlay.show();
+    }
+    
+    function hidePopup() {
+        overlay.hide();
+    }
+    restartBtn.on("click", function() {
+        hidePopup();
+        kuis.hide();
+        start.show();
+        resetVariables();
+        setQuestions();
+    });
+    
 
     function answer(e) {
         const correctAnswer = baku[lastIndex];
         if ($(e.currentTarget).text() === baku[lastIndex]) {
-            const answerString = `Jawaban Anda, "${$(e.currentTarget).text()}", benar!`;
-            answerText.text(answerString);
+            rightCount += 1;
+            answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", benar!`);
             answerText.removeClass('wrong');
             answerText.addClass('right');
-            rightCount += 1;
             numRightAnswers.text(rightCount);
             if (sound) {
                 rightSound.pause();
@@ -90,14 +122,10 @@ $(document).ready(function() {
             }
             setQuestions();
         } else {
-            const answerString = `Jawaban Anda, "${$(e.currentTarget).text()}", salah!`;
-            const keyAnswerString = `Jawaban yang benar adalah "${correctAnswer}".`;
-            answerText.text(answerString);
-            answerText.append($('<br>'));
-            answerText.append($('<span>').text(keyAnswerString));
+            wrongCount += 1;
+            answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", salah! Jawaban yang benar adalah "${correctAnswer}".`);
             answerText.removeClass('right');
             answerText.addClass('wrong');
-            wrongCount += 1;
             numWrongAnswers.text(wrongCount);
             if (sound) {
                 rightSound.pause();
@@ -106,6 +134,9 @@ $(document).ready(function() {
             }
             setQuestions();
         }
+        score = (rightCount / 20 * 100).toFixed(0);
+        if (questionCount === 20) {
+            showPopup(score);
+        }
     }
-    setQuestions();
 });
