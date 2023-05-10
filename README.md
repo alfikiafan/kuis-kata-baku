@@ -32,4 +32,4 @@ Lisensi Aplikasi ini didistribusikan dengan lisensi MIT. Pengguna bebas mengguna
 
 ## Kontak
 
-Jika terdapat masalah atau pertanyaan terkait aplikasi ini, silakan hubungi saya di alfiki.diastama@gmail.com.
+Jika Anda ingin mengusulkan entri kata baku, atau terdapat kesalahan kata, masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi saya di alfiki.diastama@gmail.com.
