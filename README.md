@@ -24,7 +24,7 @@ Teknologi Aplikasi ini menggunakan jQuery sebagai framework untuk mengatur inter
 5.  Jika jawaban yang dipilih benar, akan muncul tampilan "Jawaban Benar" dan jika salah, akan muncul tampilan "Jawaban Salah".
 6.  Setelah menjawab semua soal, pengguna akan melihat tampilan hasil pengerjaan dan dapat memulai kuis dari awal jika diinginkan.
 
-Kredit Aplikasi ini dibuat oleh Alfiki Diastama Afan Firdaus sebagai tugas  menggunakan jQuery dan data kata baku dari Lantip ([lantip/baku-tidak-baku: Kumpulan kata baku dan tidak baku menurut KBBI (github.com)](https://github.com/lantip/baku-tidak-baku)) dengan revisi menyesuaikan KBBI V.
+Kredit Aplikasi ini dibuat oleh Alfiki Diastama Afan Firdaus sebagai tugas  menggunakan jQuery dan data kata baku dari Lantip ([Lantip: Kumpulan Kata Baku dan Tidak Baku menurut KBBI](https://github.com/lantip/baku-tidak-baku)) dengan revisi menyesuaikan KBBI V terbaru. ([KBBI Daring](https://kbbi.kemdikbud.go.id/))
 
 ## Lisensi
 
