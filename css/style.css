@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -51,6 +51,32 @@ line-height: 1.5rem;
 .loading p {
   font-size: 24px;
   font-weight: bold;
+}
+
+.loading p:after {
+  content: '.';
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+                 .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: black;
+    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+                 .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: .25em 0 0 black,
+                 .5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%, 100% {
+    text-shadow: .25em 0 0 black,
+                 .5em 0 0 black;
+  }
 }
 
 .main-paragraph, .instruction {
@@ -170,17 +196,9 @@ box-shadow: var(--shadow-md);
 
 .stat-right p, .stat-wrong p {
   color: var(--buttonTextColor);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.125rem;
-}
-
-.stat .right-count {
-  font-size: 2rem;
-}
-
-.stat .wrong-count {
-  font-size: 2rem;
 }
 
 .btn-sound {
@@ -249,8 +267,9 @@ box-shadow: var(--shadow-md);
   place-items: center;
 }
 
-.footer p {
+.footer p, .footer a {
   color: var(--buttonTextColor);
+  font-size: 0.8rem;
 }
 
 @media screen and (min-width: 576px) {
