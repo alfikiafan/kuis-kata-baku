@@ -30,6 +30,10 @@ Kredit Aplikasi ini dibuat oleh Alfiki Diastama Afan Firdaus sebagai tugas  meng
 
 Lisensi Aplikasi ini didistribusikan dengan lisensi MIT. Pengguna bebas menggunakan, mengubah, dan mendistribusikan aplikasi ini dengan syarat mencantumkan kredit kepada pembuat asli dan tidak menarik keuntungan finansial dari penggunaan aplikasi ini.
 
+## Kontribusi
+
+Jika Anda ingin mengusulkan entri kata baku, terdapat kesalahan kata, atau ingin mengajukan perubahan kode, silakan melakukan fork dan pull request ke repositori ini.
+
 ## Kontak
 
-Jika Anda ingin mengusulkan entri kata baku, atau terdapat kesalahan kata, masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi saya di alfiki.diastama@gmail.com.
+Jika terdapat masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi saya di alfiki.diastama@gmail.com.
