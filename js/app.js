@@ -2,7 +2,7 @@ let tidakBaku = [];
 let baku = [];
 
 // mengambil file JSON menggunakan Fetch API
-fetch('https://raw.githubusercontent.com/lantip/baku-tidak-baku/main/daftar_baku_lantip.json')
+fetch('https://raw.githubusercontent.com/alfikiafan/Kata-Baku/master/data/data.json')
   .then(response => response.json())
   .then(jsonData => {
     // mendapatkan array kunci dan nilai dari objek JSON
