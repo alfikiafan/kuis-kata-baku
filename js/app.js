@@ -22,28 +22,31 @@ $(document).ready(function() {
 	const startButton = $('.btn-start');
 	const start = $('.start');
 	const kuis = $('.kuis');
-	const mainParagraph = $('.main-paragraph');
+	const btn1 = $('.btn-1');
+	const btn2 = $('.btn-2');
+	const questionNumber = $('.question-number');
+	const soundButton = $('.btn-sound');
+	const resetButton = $('.btn-reset');
+	const answerText = $('.answer-text');
+	const numRightAnswers = $('.right-count');
+	const numWrongAnswers = $('.wrong-count');
+	const rightSound = new Audio("audio/right.mp3");
+	const wrongSound = new Audio("audio/wrong.mp3");
 	const overlay = $('.overlay');
 	const scoreDisplay = $('#score');
 	const restartBtn = $('.btn-restart');
-    const numRightAnswers = $('.right-count');
-	const numWrongAnswers = $('.wrong-count');
-	const answerText = $('.answer-text');
-	const rightSound = new Audio("audio/right.mp3");
-	const wrongSound = new Audio("audio/wrong.mp3");
-	const soundButton = $('.btn-sound');
 
 	startButton.on('click', function() {
 		start.hide();
 		kuis.show();
 	});
 
-	$('.btn-1').on('click', answer);
-	$('.btn-2').on('click', answer);
+	btn1.on('click', answer);
+	btn2.on('click', answer);
 
 	let lastIndex = -1;
 	let index = -1;
-	let questionCount = -1;
+	let questionCount = 1;
 	let score = 0;
 	let rightCount = 0;
 	let wrongCount = 0;
@@ -51,9 +54,20 @@ $(document).ready(function() {
 
 	soundButton.on('click', function() {
 		const icon = soundButton.find('i');
-		icon.toggleClass("fa-volume-up fa-volume-mute");
+		icon.toggleClass('fa-volume-up fa-volume-mute');
 		sound = !sound;
 	});
+
+	resetButton.on('click', resetQuiz);
+	restartBtn.on('click', resetQuiz);
+
+	function resetQuiz() {
+		hidePopup();
+		kuis.hide();
+		start.show();
+		resetVariables();
+		setQuestions();
+	}		
 
 	function setQuestions() {
 		while (index === lastIndex) {
@@ -61,26 +75,34 @@ $(document).ready(function() {
 		}
 		const rightButton = Math.floor(Math.random() * 2);
 		if (rightButton === 0) {
-			$('.btn-1').text(baku[index]);
-			$('.btn-2').text(tidakBaku[index]);
+			btn1.text(baku[index]);
+			btn2.text(tidakBaku[index]);
 		} else {
-			$('.btn-1').text(tidakBaku[index]);
-			$('.btn-2').text(baku[index]);
+			btn1.text(tidakBaku[index]);
+			btn2.text(baku[index]);
 		}
 		lastIndex = index;
-		questionCount++;
-		mainParagraph.text(`Soal ${questionCount} dari 20`);
+		if (questionCount <= 21) {
+			if (questionCount <= 20) {
+				questionNumber.text(`Soal ${questionCount} dari 20`);
+			}
+			questionCount++;
+		}
+		score = (rightCount / 20 * 100).toFixed(0);
+		if (questionCount === 22) {
+			showPopup(score);
+		}
 	}
 
 	function resetVariables() {
 		lastIndex = -1;
 		index = -1;
-		questionCount = -1;
+		questionCount = 1;
 		score = 0;
 
 		rightCount = 0;
 		wrongCount = 0;
-		answerText.text('');
+		answerText.text('Selamat belajar!');
 		numRightAnswers.text(rightCount);
 		numWrongAnswers.text(wrongCount);
 	}
@@ -93,13 +115,6 @@ $(document).ready(function() {
 	function hidePopup() {
 		overlay.hide();
 	}
-	restartBtn.on("click", function() {
-		hidePopup();
-		kuis.hide();
-		start.show();
-		resetVariables();
-		setQuestions();
-	});
 
 	function answer(e) {
 		const correctAnswer = baku[lastIndex];
@@ -127,10 +142,6 @@ $(document).ready(function() {
 				wrongSound.play();
 			}
 			setQuestions();
-		}
-		score = (rightCount / 20 * 100).toFixed(0);
-		if (questionCount === 20) {
-			showPopup(score);
 		}
 	}
 });
