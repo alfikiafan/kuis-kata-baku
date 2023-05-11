@@ -6,7 +6,7 @@ $(function() {
 	const loading = $('.loading');
 	const mainContainer = $('.main-container');
 
-	fetch('https://raw.githubusercontent.com/alfikiafan/Kata-Baku/master/data/data.json')
+	fetch('https://raw.githubusercontent.com/alfikiafan/Kuis-Kata-Baku/master/data/data.json')
 		.then(response => response.json())
 		.then(jsonData => {
 			tidakBaku = Object.keys(jsonData);
