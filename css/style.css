@@ -265,7 +265,7 @@ box-shadow: var(--shadow-md);
 .footer p, .footer a {
   color: var(--buttonTextColor);
   font-size: 0.8rem;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .space {
