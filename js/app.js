@@ -23,25 +23,20 @@ $(function() {
 	const btn1 = $('.btn-1');
 	const btn2 = $('.btn-2');
 	const questionNumber = $('.question-number');
+	const countDownText = $('.countdown');
 	const soundButton = $('.btn-sound');
 	const resetButton = $('.btn-reset');
 	const answerText = $('.answer-text');
 	const kbbiLink = $('.kbbi-link');
-	const numRightAnswers = $('.right-timeLeft');
-	const numWrongAnswers = $('.wrong-timeLeft');
+	const numRightAnswers = $('.right-count');
+	const numWrongAnswers = $('.wrong-count');
 	const rightSound = new Audio("audio/right.mp3");
 	const wrongSound = new Audio("audio/wrong.mp3");
 	const overlay = $('.overlay');
 	const scoreDisplay = $('#score');
 	const restartBtn = $('.btn-restart');
 
-	startButton.on('click', () => {
-		start.hide();
-		kuis.show();
-	});
-	btn1.on('click', answer);
-	btn2.on('click', answer);
-
+	let isCountdownStarted = false;
 	let countdown;
 	let timeLeft = 10;
 	let lastIndex = -1;
@@ -51,6 +46,15 @@ $(function() {
 	let rightCount = 0;
 	let wrongCount = 0;
 	let sound = true;
+	
+	startButton.on('click', () => {
+		start.hide();
+		kuis.show();
+		countDown();
+		isCountdownStarted = true;
+	});
+	btn1.on('click', answer);
+	btn2.on('click', answer);
 
 	soundButton.on('click', () => {
 		const icon = soundButton.find('i');
@@ -89,7 +93,6 @@ $(function() {
 		clearInterval(countdown);
 		let timeUp = false;
 		let answerClicked = false;
-		const countDown = $('.countdown');
 	  
 		function setAnswerClicked() {
 		  answerClicked = true;
@@ -106,7 +109,7 @@ $(function() {
 		  var minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
 		  var seconds = (timeLeft % 60).toString().padStart(2, '0');
 		  var display = minutes + ":" + seconds;
-		  countDown.html(display);
+		  countDownText.html(display);
 		  if (timeLeft == 0) {
 			timeUp = true;
 			wrongAnswerHandler(answer, timeUp);
@@ -114,13 +117,14 @@ $(function() {
 		  if (answerClicked) {
 			timeLeft = 10;
 			answerClicked = false;
-			countDown.html('00:10');
-			setTimeout(countDown, 1000);
+			countDownText.html('00:10');
+			setTimeout(countDownText, 1000);
 		  }
 		}, 1000);
 	  }	  
 
 	function resetQuiz() {
+		clearInterval(countdown);
 		hidePopup();
 		kuis.hide();
 		start.show();
@@ -153,12 +157,13 @@ $(function() {
 			showPopup(score);
 			isQuizEnded = true;
 		}
-		if (questionCount >= 1 && !isQuizEnded) {
+		if (isCountdownStarted && !isQuizEnded) {
 			countDown();
 		}
 	}
 
 	const resetVariables = () => {
+		isCountdownStarted = false;
 		timeLeft = 10;
 		lastIndex = -1;
 		index = -1;
@@ -166,6 +171,7 @@ $(function() {
 		score = 0;
 		rightCount = 0;
 		wrongCount = 0;
+		countDownText.html('00:10');
 		answerText.text('Selamat belajar!');
 		answerText.css('color', '#546e7a');
 		numRightAnswers.text(rightCount);
@@ -175,6 +181,7 @@ $(function() {
 	function showPopup(score) {
 		scoreDisplay.text(score);
 		overlay.show();
+		clearInterval(countdown);
 	}
 	
 	const hidePopup = () => {
