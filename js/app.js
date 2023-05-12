@@ -87,7 +87,6 @@ $(function() {
         }
         kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
         kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
-        generateQuestion();
     }
 
     function countDown() {
@@ -143,15 +142,22 @@ $(function() {
 
     function questionLoader() {
         clearInterval(countdown);
-        countDownText.html('00:10');
-        questionButton.hide();
-        questionLoaderView.show();
-        setTimeout(function() {
-            questionLoaderView.hide();
-            questionButton.show();
-            generateQuestion();
-            countDown();
-        }, 1000);
+        if (questionCount <= 20) {
+            countDownText.html('00:10');
+            questionButton.hide();
+            questionLoaderView.show();
+            setTimeout(function() {
+                questionLoaderView.hide();
+                questionButton.show();
+                generateQuestion();
+                countDown();
+            }, 1000);
+        }
+        else {
+            score = (rightCount / 20 * 100).toFixed(0);
+            showPopup(score);
+            isQuizEnded = true;
+        }
     }
 
     function generateQuestion() {
@@ -168,16 +174,9 @@ $(function() {
             btn2.text(baku[index]);
         }
         lastIndex = index;
-        if (questionCount <= 21) {
-            if (questionCount <= 20) {
-                questionNumber.text(`Soal ${questionCount} dari 20`);
-            }
+        if (questionCount <= 20) {
+            questionNumber.text(`Soal ${questionCount} dari 20`);
             questionCount++;
-        }
-        score = (rightCount / 20 * 100).toFixed(0);
-        if (questionCount === 22) {
-            showPopup(score);
-            isQuizEnded = true;
         }
         if (isCountdownStarted && !isQuizEnded) {
             countDown();
@@ -226,7 +225,6 @@ $(function() {
             }
             kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
             kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
-            generateQuestion();
             questionLoader();
         } else {
             wrongAnswerHandler(e, false);
