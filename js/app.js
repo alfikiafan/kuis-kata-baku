@@ -26,6 +26,7 @@ $(function() {
 	const soundButton = $('.btn-sound');
 	const resetButton = $('.btn-reset');
 	const answerText = $('.answer-text');
+	const kbbiLink = $('.kbbi-link');
 	const numRightAnswers = $('.right-count');
 	const numWrongAnswers = $('.wrong-count');
 	const rightSound = new Audio("audio/right.mp3");
@@ -57,6 +58,62 @@ $(function() {
 	resetButton.on('click', resetQuiz);
 	restartBtn.on('click', resetQuiz);
 
+	function wrongAnswerHandler(e, textFlag) {
+		const correctAnswer = baku[lastIndex];
+		wrongCount += 1;
+		answerText.css('color', '#f44336');
+		if (textFlag) {
+			answerText.text(`Waktu habis! Jawaban yang benar adalah "${correctAnswer}".`);
+		}
+		else {
+			answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", salah! Jawaban yang benar adalah "${correctAnswer}".`);
+		}
+		answerText.removeClass('right');
+		answerText.addClass('wrong');
+		numWrongAnswers.text(wrongCount);
+		if (sound) {
+			rightSound.pause();
+			rightSound.currentTime = 0;
+			wrongSound.play();
+		}
+		kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
+		kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
+		generateQuestion();
+	}
+
+	function countDown() {
+		let textFlag = false;
+		let answerClicked = false;
+		const countDown = $('.countdown');
+		var count = 10;
+		var countdown = setInterval(function() {
+			count--;
+			var minutes = Math.floor(count / 60).toString().padStart(2, '0');
+			var seconds = (count % 60).toString().padStart(2, '0');
+			var display = minutes + ":" + seconds;
+			countDown.html(display);
+			if (count == 0) {
+				textFlag = true;
+				clearInterval(countdown);
+				wrongAnswerHandler(textFlag);
+			}
+			if (answerClicked) {
+				clearInterval(countdown);
+				count = 0;
+				answerClicked = false;
+				countDown.html('00:00');
+				setTimeout(countDown, 1000);
+			}
+		}, 1000);
+	  
+		function setAnswerClicked() {
+		  answerClicked = true;
+		}
+	  
+		btn1.on('click', setAnswerClicked);
+		btn2.on('click', setAnswerClicked);
+	}
+
 	function resetQuiz() {
 		hidePopup();
 		kuis.hide();
@@ -66,6 +123,7 @@ $(function() {
 	}
 
 	function generateQuestion() {
+		let isQuizEnded = false;
 		while (index === lastIndex) {
 			index = Math.floor(Math.random() * baku.length);
 		}
@@ -87,6 +145,10 @@ $(function() {
 		score = (rightCount / 20 * 100).toFixed(0);
 		if (questionCount === 22) {
 			showPopup(score);
+			isQuizEnded = true;
+		}
+		if (questionCount >= 1 && !isQuizEnded) {
+			countDown();
 		}
 	}
 
@@ -116,6 +178,7 @@ $(function() {
 		const correctAnswer = baku[lastIndex];
 		if ($(e.currentTarget).text() === baku[lastIndex]) {
 			rightCount += 1;
+			answerText.css('color', '#4caf50');
 			answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", benar!`);
 			answerText.removeClass('wrong');
 			answerText.addClass('right');
@@ -125,19 +188,11 @@ $(function() {
 				rightSound.currentTime = 0;
 				rightSound.play();
 			}
+			kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
+			kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
 			generateQuestion();
 		} else {
-			wrongCount += 1;
-			answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", salah! Jawaban yang benar adalah "${correctAnswer}".`);
-			answerText.removeClass('right');
-			answerText.addClass('wrong');
-			numWrongAnswers.text(wrongCount);
-			if (sound) {
-				rightSound.pause();
-				rightSound.currentTime = 0;
-				wrongSound.play();
-			}
-			generateQuestion();
+			wrongAnswerHandler(e, false);
 		}
 	}
 });

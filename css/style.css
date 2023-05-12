@@ -42,11 +42,20 @@ color: var(--headingColor);
 text-align: center;
 }
 
-p {
+h2 {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+p, a {
 color: var(--textColor);
 text-align: center;
 font-size: 0.8rem;
 line-height: 1.5rem;
+}
+
+a {
+  font-weight: 600;
 }
 
 .logo {
@@ -104,7 +113,7 @@ line-height: 1.5rem;
 .question-number, .instruction {
 max-width: 400px;
 margin: 0 auto;
-margin-top: 1.5rem;
+margin-top: 1rem;
 }
 
 .main-container {
@@ -157,16 +166,14 @@ box-shadow: var(--shadow-md);
 
 .right {
   opacity: 1;
-  color: var(--rightColor);
 }
 
 .wrong {
   opacity: 1;
-  color: var(--wrongColor);
 }
 
 .stats {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
 }
