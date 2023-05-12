@@ -63,7 +63,7 @@ $(function() {
 		start.show();
 		resetVariables();
 		generateQuestion();
-	}		
+	}
 
 	function generateQuestion() {
 		while (index === lastIndex) {
