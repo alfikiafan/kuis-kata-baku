@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -14,18 +14,20 @@
   --backgroundColor: #fafafa;
   --rightColor: #4caf50;
   --wrongColor: #f44336;
-  --font: 'Montserrat', sans-serif;
+  --font: "Montserrat", sans-serif;
   --transition: all 0.2s linear;
   --radius: 1rem;
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --footerHeight: 4rem;
 }
 
 body {
-background-color: var(--backgroundColor);
-font-family: var(--font);
-letter-spacing: 0.05rem;
+  background-color: var(--backgroundColor);
+  font-family: var(--font);
+  letter-spacing: 0.05rem;
 }
 
 main {
@@ -37,9 +39,14 @@ main {
   padding-bottom: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-color: var(--headingColor);
-text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--headingColor);
+  text-align: center;
 }
 
 h2 {
@@ -47,11 +54,12 @@ h2 {
   line-height: 2rem;
 }
 
-p, a {
-color: var(--textColor);
-text-align: center;
-font-size: 0.8rem;
-line-height: 1.5rem;
+p,
+a {
+  color: var(--textColor);
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
 }
 
 a {
@@ -88,8 +96,9 @@ a {
   font-weight: bold;
 }
 
-.loading p:after, .question-loader p:after {
-  content: '.';
+.loading p:after,
+.question-loader p:after {
+  content: ".";
   animation: dots 1s steps(5, end) infinite;
 }
 
@@ -102,37 +111,36 @@ a {
 }
 
 @keyframes dots {
-  0%, 20% {
+  0%,
+  20% {
     color: rgba(0, 0, 0, 0);
-    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
-                 .5em 0 0 rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
   }
   40% {
     color: black;
-    text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
-                 .5em 0 0 rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
   }
   60% {
-    text-shadow: .25em 0 0 black,
-                 .5em 0 0 rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 rgba(0, 0, 0, 0);
   }
-  80%, 100% {
-    text-shadow: .25em 0 0 black,
-                 .5em 0 0 black;
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
   }
 }
 
-.question-number, .instruction {
-max-width: 400px;
-margin: 0 auto;
-margin-top: 1rem;
+.question-number,
+.instruction {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
 .main-container {
-display: none;
-max-width: 1170px;
-width: 80vw;
-margin: 0 auto;
+  display: none;
+  max-width: 1170px;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 .kuis {
@@ -140,24 +148,24 @@ margin: 0 auto;
 }
 
 .btn-container {
-display: grid;
-place-items: center;
-row-gap: 1rem;
-padding: 1rem 0;
+  display: grid;
+  place-items: center;
+  row-gap: 1rem;
+  padding: 1rem 0;
 }
 
 .btn {
-width: 240px;
-padding: 1rem 2rem;
-background-color: var(--buttonColor);
-border: none;
-color: var(--buttonTextColor);
-font-size: 1rem;
-font-weight: bold;
-letter-spacing: 0.1rem;
-transition: var(--transition);
-border-radius: var(--radius);
-box-shadow: var(--shadow-md);
+  width: 240px;
+  padding: 1rem 2rem;
+  background-color: var(--buttonColor);
+  border: none;
+  color: var(--buttonTextColor);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  transition: var(--transition);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
 }
 
 .btn:hover {
@@ -190,7 +198,8 @@ box-shadow: var(--shadow-md);
   justify-content: center;
 }
 
-.stat-right, .stat-wrong {
+.stat-right,
+.stat-wrong {
   padding: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
@@ -205,14 +214,16 @@ box-shadow: var(--shadow-md);
   background-color: var(--wrongColor);
 }
 
-.stat-right p, .stat-wrong p {
+.stat-right p,
+.stat-wrong p {
   color: var(--buttonTextColor);
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.125rem;
 }
 
-.btn-sound, .btn-reset {
+.btn-sound,
+.btn-reset {
   margin: 0 0.5rem;
   width: 5rem;
   padding: 0.5rem 0.5rem;
@@ -223,7 +234,8 @@ box-shadow: var(--shadow-md);
   transition: var(--transition);
 }
 
-.btn-sound:hover, .btn-reset:hover {
+.btn-sound:hover,
+.btn-reset:hover {
   transform: scale(1.2);
 }
 
@@ -281,7 +293,8 @@ box-shadow: var(--shadow-md);
   place-items: center;
 }
 
-.footer p, .footer a {
+.footer p,
+.footer a {
   color: var(--buttonTextColor);
   white-space: nowrap;
 }
