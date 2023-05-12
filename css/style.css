@@ -47,7 +47,6 @@ color: var(--textColor);
 text-align: center;
 font-size: 1.1rem;
 line-height: 1.5rem;
-white-space: nowrap;
 }
 
 .logo {
@@ -266,6 +265,7 @@ box-shadow: var(--shadow-md);
 .footer p, .footer a {
   color: var(--buttonTextColor);
   font-size: 0.8rem;
+  white-space: nowrap;
   word-break: break-all;
 }
 
