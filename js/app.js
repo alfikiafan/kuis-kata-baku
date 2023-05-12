@@ -27,8 +27,8 @@ $(function() {
 	const resetButton = $('.btn-reset');
 	const answerText = $('.answer-text');
 	const kbbiLink = $('.kbbi-link');
-	const numRightAnswers = $('.right-count');
-	const numWrongAnswers = $('.wrong-count');
+	const numRightAnswers = $('.right-timeLeft');
+	const numWrongAnswers = $('.wrong-timeLeft');
 	const rightSound = new Audio("audio/right.mp3");
 	const wrongSound = new Audio("audio/wrong.mp3");
 	const overlay = $('.overlay');
@@ -42,7 +42,8 @@ $(function() {
 	btn1.on('click', answer);
 	btn2.on('click', answer);
 
-	let count = 10;
+	let countdown;
+	let timeLeft = 10;
 	let lastIndex = -1;
 	let index = -1;
 	let questionCount = 1;
@@ -61,7 +62,7 @@ $(function() {
 	restartBtn.on('click', resetQuiz);
 
 	function wrongAnswerHandler(e, timeUp) {
-		count = 10;
+		timeLeft = 10;
 		const correctAnswer = baku[lastIndex];
 		wrongCount += 1;
 		answerText.css('color', '#f44336');
@@ -85,34 +86,33 @@ $(function() {
 	}
 
 	function countDown() {
+		clearInterval(countdown);
 		let timeUp = false;
 		let answerClicked = false;
 		const countDown = $('.countdown');
 	  
 		function setAnswerClicked() {
 		  answerClicked = true;
-		  if (count > 0) {
-			count = 10;
+		  if (timeLeft > 0) {
+			timeLeft = 10;
 		  }
 		}
 	  
 		btn1.on('click', setAnswerClicked);
 		btn2.on('click', setAnswerClicked);
 	  
-		var countdown = setInterval(function() {
-		  count--;
-		  var minutes = Math.floor(count / 60).toString().padStart(2, '0');
-		  var seconds = (count % 60).toString().padStart(2, '0');
+		countdown = setInterval(function() {
+		  timeLeft--;
+		  var minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+		  var seconds = (timeLeft % 60).toString().padStart(2, '0');
 		  var display = minutes + ":" + seconds;
 		  countDown.html(display);
-		  if (count == 0) {
+		  if (timeLeft == 0) {
 			timeUp = true;
-			clearInterval(countdown);
 			wrongAnswerHandler(answer, timeUp);
 		  }
 		  if (answerClicked) {
-			clearInterval(countdown);
-			count = 10;
+			timeLeft = 10;
 			answerClicked = false;
 			countDown.html('00:10');
 			setTimeout(countDown, 1000);
@@ -159,6 +159,7 @@ $(function() {
 	}
 
 	const resetVariables = () => {
+		timeLeft = 10;
 		lastIndex = -1;
 		index = -1;
 		questionCount = 1;
