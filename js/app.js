@@ -41,6 +41,8 @@ $(function() {
 	});
 	btn1.on('click', answer);
 	btn2.on('click', answer);
+
+	let count = 10;
 	let lastIndex = -1;
 	let index = -1;
 	let questionCount = 1;
@@ -58,11 +60,12 @@ $(function() {
 	resetButton.on('click', resetQuiz);
 	restartBtn.on('click', resetQuiz);
 
-	function wrongAnswerHandler(e, textFlag) {
+	function wrongAnswerHandler(e, timeUp) {
+		count = 10;
 		const correctAnswer = baku[lastIndex];
 		wrongCount += 1;
 		answerText.css('color', '#f44336');
-		if (textFlag) {
+		if (timeUp) {
 			answerText.text(`Waktu habis! Jawaban yang benar adalah "${correctAnswer}".`);
 		}
 		else {
@@ -82,37 +85,40 @@ $(function() {
 	}
 
 	function countDown() {
-		let textFlag = false;
+		let timeUp = false;
 		let answerClicked = false;
 		const countDown = $('.countdown');
-		var count = 10;
-		var countdown = setInterval(function() {
-			count--;
-			var minutes = Math.floor(count / 60).toString().padStart(2, '0');
-			var seconds = (count % 60).toString().padStart(2, '0');
-			var display = minutes + ":" + seconds;
-			countDown.html(display);
-			if (count == 0) {
-				textFlag = true;
-				clearInterval(countdown);
-				wrongAnswerHandler(textFlag);
-			}
-			if (answerClicked) {
-				clearInterval(countdown);
-				count = 0;
-				answerClicked = false;
-				countDown.html('00:00');
-				setTimeout(countDown, 1000);
-			}
-		}, 1000);
 	  
 		function setAnswerClicked() {
 		  answerClicked = true;
+		  if (count > 0) {
+			count = 10;
+		  }
 		}
 	  
 		btn1.on('click', setAnswerClicked);
 		btn2.on('click', setAnswerClicked);
-	}
+	  
+		var countdown = setInterval(function() {
+		  count--;
+		  var minutes = Math.floor(count / 60).toString().padStart(2, '0');
+		  var seconds = (count % 60).toString().padStart(2, '0');
+		  var display = minutes + ":" + seconds;
+		  countDown.html(display);
+		  if (count == 0) {
+			timeUp = true;
+			clearInterval(countdown);
+			wrongAnswerHandler(answer, timeUp);
+		  }
+		  if (answerClicked) {
+			clearInterval(countdown);
+			count = 10;
+			answerClicked = false;
+			countDown.html('00:10');
+			setTimeout(countDown, 1000);
+		  }
+		}, 1000);
+	  }	  
 
 	function resetQuiz() {
 		hidePopup();
