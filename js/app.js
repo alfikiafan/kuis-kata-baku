@@ -121,7 +121,14 @@ $(function() {
 			setTimeout(countDownText, 1000);
 		  }
 		}, 1000);
-	  }	  
+	  }
+	  $(document).on("visibilitychange", function() {
+		if (document.hidden) {
+		  clearInterval(countdown);
+		} else {
+		  countDown();
+		}
+	  });
 
 	function resetQuiz() {
 		clearInterval(countdown);
