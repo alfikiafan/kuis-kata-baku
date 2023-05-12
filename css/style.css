@@ -19,7 +19,7 @@
   --radius: 1rem;
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --footerHeight: 50px;
+  --footerHeight: 4rem;
 }
 
 body {
@@ -45,7 +45,7 @@ text-align: center;
 p {
 color: var(--textColor);
 text-align: center;
-font-size: 1.1rem;
+font-size: 0.8rem;
 line-height: 1.5rem;
 }
 
@@ -264,7 +264,6 @@ box-shadow: var(--shadow-md);
 
 .footer p, .footer a {
   color: var(--buttonTextColor);
-  font-size: 0.8rem;
   white-space: nowrap;
 }
 
