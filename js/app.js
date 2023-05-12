@@ -23,6 +23,8 @@ $(function() {
 	const btn1 = $('.btn-1');
 	const btn2 = $('.btn-2');
 	const questionNumber = $('.question-number');
+	const questionButton = $('.btn-container');
+	const questionLoaderView = $('.question-loader');
 	const countDownText = $('.countdown');
 	const soundButton = $('.btn-sound');
 	const resetButton = $('.btn-reset');
@@ -113,6 +115,7 @@ $(function() {
 		  if (timeLeft == 0) {
 			timeUp = true;
 			wrongAnswerHandler(answer, timeUp);
+			questionLoader();
 		  }
 		  if (answerClicked) {
 			timeLeft = 10;
@@ -138,6 +141,19 @@ $(function() {
 		resetVariables();
 		generateQuestion();
 	}
+
+	function questionLoader() {
+		clearInterval(countdown);
+		countDownText.html('00:10');
+		questionButton.hide();
+		questionLoaderView.show();
+		setTimeout(function() {
+			questionLoaderView.hide();
+			questionButton.show();
+		  generateQuestion();
+		  countDown();
+		}, 1000);
+	  }
 
 	function generateQuestion() {
 		let isQuizEnded = false;
@@ -212,8 +228,10 @@ $(function() {
 			kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
 			kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
 			generateQuestion();
+			questionLoader();
 		} else {
 			wrongAnswerHandler(e, false);
+			questionLoader();
 		}
 	}
 });
