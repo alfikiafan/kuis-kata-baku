@@ -98,6 +98,7 @@ $(function() {
 		rightCount = 0;
 		wrongCount = 0;
 		answerText.text('Selamat belajar!');
+		answerText.css('color', '#546e7a');
 		numRightAnswers.text(rightCount);
 		numWrongAnswers.text(wrongCount);
 	}
