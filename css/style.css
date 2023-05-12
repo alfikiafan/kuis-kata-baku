@@ -267,6 +267,7 @@ box-shadow: var(--shadow-md);
   font-size: 0.8rem;
   white-space: nowrap;
   word-break: break-all;
+  display: block;
 }
 
 .space {
