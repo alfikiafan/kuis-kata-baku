@@ -42,4 +42,4 @@ Jika terdapat masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi
 
 ## Pembaruan
 
-Terakhir diperbarui pada 11 Mei 2023 00:00
+Terakhir diperbarui pada 12 Mei 2023 01:30
