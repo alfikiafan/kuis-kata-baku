@@ -1,8 +1,6 @@
 $(function() { 
-
 	let tidakBaku = [];
 	let baku = [];
-
 	const loading = $('.loading');
 	const mainContainer = $('.main-container');
 
@@ -13,7 +11,7 @@ $(function() {
 			baku = Object.values(jsonData);
 			setTimeout(() => {
                 loading.hide();
-                setQuestions();
+                generateQuestion();
                 mainContainer.show();
               }, 2000);
 		})
@@ -40,10 +38,8 @@ $(function() {
 		start.hide();
 		kuis.show();
 	});
-
 	btn1.on('click', answer);
 	btn2.on('click', answer);
-
 	let lastIndex = -1;
 	let index = -1;
 	let questionCount = 1;
@@ -66,10 +62,10 @@ $(function() {
 		kuis.hide();
 		start.show();
 		resetVariables();
-		setQuestions();
+		generateQuestion();
 	}		
 
-	function setQuestions() {
+	function generateQuestion() {
 		while (index === lastIndex) {
 			index = Math.floor(Math.random() * baku.length);
 		}
@@ -99,7 +95,6 @@ $(function() {
 		index = -1;
 		questionCount = 1;
 		score = 0;
-
 		rightCount = 0;
 		wrongCount = 0;
 		answerText.text('Selamat belajar!');
@@ -129,7 +124,7 @@ $(function() {
 				rightSound.currentTime = 0;
 				rightSound.play();
 			}
-			setQuestions();
+			generateQuestion();
 		} else {
 			wrongCount += 1;
 			answerText.text(`Jawaban Anda, "${$(e.currentTarget).text()}", salah! Jawaban yang benar adalah "${correctAnswer}".`);
@@ -141,7 +136,7 @@ $(function() {
 				rightSound.currentTime = 0;
 				wrongSound.play();
 			}
-			setQuestions();
+			generateQuestion();
 		}
 	}
 });
