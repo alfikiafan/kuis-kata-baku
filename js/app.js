@@ -151,7 +151,7 @@ $(function() {
                 questionButton.show();
                 generateQuestion();
                 countDown();
-            }, 1000);
+            }, 500);
         }
         else {
             score = (rightCount / 20 * 100).toFixed(0);
