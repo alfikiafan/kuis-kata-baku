@@ -29,10 +29,6 @@ $(function() {
     const soundButton = $('.btn-sound');
     const resetButton = $('.btn-reset');
     const answerText = $('.answer-text');
-<<<<<<< HEAD
-=======
-    const kbbiLink = $('.kbbi-link');
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
     const numRightAnswers = $('.right-count');
     const numWrongAnswers = $('.wrong-count');
     const rightSound = new Audio("audio/right.mp3");
@@ -41,16 +37,10 @@ $(function() {
     const scoreDisplay = $('#score');
     const restartBtn = $('.btn-restart');
 
-<<<<<<< HEAD
     let correctAnswers = [];
     let isCountdownStarted = false;
     let countdown;
     let timeLeft = 5;
-=======
-    let isCountdownStarted = false;
-    let countdown;
-    let timeLeft = 15;
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
     let lastIndex = -1;
     let index = -1;
     let questionCount = 1;
@@ -78,11 +68,7 @@ $(function() {
     restartBtn.on('click', resetQuiz);
 
     function wrongAnswerHandler(e, timeUp) {
-<<<<<<< HEAD
         timeLeft = 5;
-=======
-        timeLeft = 15;
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
         const correctAnswer = baku[lastIndex];
         wrongCount += 1;
         answerText.css('color', '#f44336');
@@ -99,11 +85,6 @@ $(function() {
             rightSound.currentTime = 0;
             wrongSound.play();
         }
-<<<<<<< HEAD
-=======
-        kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
-        kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
     }
 
     function countDown() {
@@ -114,11 +95,7 @@ $(function() {
         function setAnswerClicked() {
             answerClicked = true;
             if (timeLeft > 0) {
-<<<<<<< HEAD
                 timeLeft = 5;
-=======
-                timeLeft = 15;
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
             }
         }
 
@@ -137,29 +114,13 @@ $(function() {
                 questionLoader();
             }
             if (answerClicked) {
-<<<<<<< HEAD
                 timeLeft = 5;
                 answerClicked = false;
                 countDownText.html('00:05');
-=======
-                timeLeft = 15;
-                answerClicked = false;
-                countDownText.html('00:15');
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
                 setTimeout(countDownText, 1000);
             }
         }, 1000);
     }
-<<<<<<< HEAD
-=======
-    // $(document).on("visibilitychange", function() {
-    //     if (document.hidden) {
-    //         clearInterval(countdown);
-    //     } else {
-    //         countDown();
-    //     }
-    // });
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
 
     function resetQuiz() {
         clearInterval(countdown);
@@ -168,20 +129,13 @@ $(function() {
         start.show();
         resetVariables();
         generateQuestion();
-<<<<<<< HEAD
         correctAnswers = [];
-=======
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
     }
 
     function questionLoader() {
         clearInterval(countdown);
         if (questionCount <= 20) {
-<<<<<<< HEAD
             countDownText.html('00:05');
-=======
-            countDownText.html('00:15');
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
             questionButton.hide();
             questionLoaderView.show();
             setTimeout(function() {
@@ -223,22 +177,14 @@ $(function() {
 
     const resetVariables = () => {
         isCountdownStarted = false;
-<<<<<<< HEAD
         timeLeft = 5;
-=======
-        timeLeft = 15;
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
         lastIndex = -1;
         index = -1;
         questionCount = 1;
         score = 0;
         rightCount = 0;
         wrongCount = 0;
-<<<<<<< HEAD
         countDownText.html('00:05');
-=======
-        countDownText.html('00:15');
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
         answerText.text('Selamat belajar!');
         answerText.css('color', '#546e7a');
         numRightAnswers.text(rightCount);
@@ -247,7 +193,6 @@ $(function() {
 
     function showPopup(score) {
         scoreDisplay.text(score);
-<<<<<<< HEAD
         let linkText = "";
         correctAnswers.forEach(function(correctAnswer, index) {
             linkText += `<a href="https://kbbi.kemdikbud.go.id/entri/${correctAnswer}" target="_blank">${correctAnswer}</a>`;
@@ -259,11 +204,6 @@ $(function() {
         overlay.show();
         clearInterval(countdown);
     }    
-=======
-        overlay.show();
-        clearInterval(countdown);
-    }
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
 
     const hidePopup = () => {
         overlay.hide();
@@ -271,10 +211,7 @@ $(function() {
 
     function answer(e) {
         const correctAnswer = baku[lastIndex];
-<<<<<<< HEAD
         correctAnswers.push(correctAnswer);
-=======
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
         if ($(e.currentTarget).text() === baku[lastIndex]) {
             rightCount += 1;
             answerText.css('color', '#4caf50');
@@ -287,11 +224,6 @@ $(function() {
                 rightSound.currentTime = 0;
                 rightSound.play();
             }
-<<<<<<< HEAD
-=======
-            kbbiLink.attr("href", `https://kbbi.kemdikbud.go.id/entri/${correctAnswer}`);
-            kbbiLink.text(`Cek arti/makna dari kata "${correctAnswer}"`);
->>>>>>> 4ccbd68f06bb30d982e9701490404be05b97537d
             questionLoader();
         } else {
             wrongAnswerHandler(e, false);
