@@ -40,7 +40,7 @@ $(function() {
     let correctAnswers = [];
     let isCountdownStarted = false;
     let countdown;
-    let timeLeft = 5;
+    let timeLeft = 10;
     let lastIndex = -1;
     let index = -1;
     let questionCount = 1;
@@ -68,7 +68,7 @@ $(function() {
     restartBtn.on('click', resetQuiz);
 
     function wrongAnswerHandler(e, timeUp) {
-        timeLeft = 5;
+        timeLeft = 10;
         const correctAnswer = baku[lastIndex];
         wrongCount += 1;
         answerText.css('color', '#f44336');
@@ -95,7 +95,7 @@ $(function() {
         function setAnswerClicked() {
             answerClicked = true;
             if (timeLeft > 0) {
-                timeLeft = 5;
+                timeLeft = 10;
             }
         }
 
@@ -114,9 +114,9 @@ $(function() {
                 questionLoader();
             }
             if (answerClicked) {
-                timeLeft = 5;
+                timeLeft = 10;
                 answerClicked = false;
-                countDownText.html('00:05');
+                countDownText.html('00:10');
                 setTimeout(countDownText, 1000);
             }
         }, 1000);
@@ -135,7 +135,7 @@ $(function() {
     function questionLoader() {
         clearInterval(countdown);
         if (questionCount <= 20) {
-            countDownText.html('00:05');
+            countDownText.html('00:10');
             questionButton.hide();
             questionLoaderView.show();
             setTimeout(function() {
@@ -177,14 +177,14 @@ $(function() {
 
     const resetVariables = () => {
         isCountdownStarted = false;
-        timeLeft = 5;
+        timeLeft = 10;
         lastIndex = -1;
         index = -1;
         questionCount = 1;
         score = 0;
         rightCount = 0;
         wrongCount = 0;
-        countDownText.html('00:05');
+        countDownText.html('00:10');
         answerText.text('Selamat belajar!');
         answerText.css('color', '#546e7a');
         numRightAnswers.text(rightCount);
