@@ -1,21 +1,41 @@
-MIT License
+Kuis Kata Baku License
 
-Copyright (c) 2023 Alfiki Diastama Afan Firdaus
+Version 1.0
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Preamble:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This license is a legal agreement between the individuals or organizations using the Kuis Kata Baku software ("the Software") and the original author ("the Author"). By using or distributing the Software, you agree to be bound by the terms of this license.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+License Text:
+
+Definitions:
+
+a. "Software" refers to the Kuis Kata Baku software in any form, including the source code, compiled binaries, and accompanying documentation.
+
+b. "Author" refers to the original creator or copyright holder of the Software.
+
+c. "You" refers to any individual or organization exercising rights under this license.
+
+Grant of License:
+
+Subject to the terms and conditions of this license, the Author hereby grants You a worldwide, non-exclusive, royalty-free, and revocable license to use, modify, and distribute the Software, under the following conditions:
+
+a. You may use, modify, and distribute the Software solely for non-commercial purposes, unless otherwise agreed upon in writing by the Author.
+
+b. You may not sell or offer for sale the Software or any derivative works based on the Software, without prior written permission from the Author.
+
+c. Any distribution of the Software must retain the original copyright notice, this license, and any disclaimers or notices included by the Author.
+
+Disclaimer of Warranty:
+
+The Software is provided "as is" without warranty of any kind, either express or implied, including, but not limited to, the warranties of merchantability, fitness for a particular purpose, and non-infringement. The Author shall not be liable for any damages, including but not limited to, direct, indirect, special, or consequential damages arising out of the use or distribution of the Software.
+
+Termination:
+
+This license is effective until terminated. Your rights under this license will terminate automatically if you fail to comply with any of its terms. Upon termination, you must cease all use, distribution, and possession of the Software and destroy all copies of the Software in your possession.
+
+Governing Law:
+
+This license shall be governed by and construed in accordance with the laws of the Republic of Indonesia. Any disputes arising under or in connection with this license shall be subject to the exclusive jurisdiction of the courts in the Republic of Indonesia.
+
+By using or distributing the Software, you indicate your acceptance of this license and agree to be bound by its terms and conditions.
