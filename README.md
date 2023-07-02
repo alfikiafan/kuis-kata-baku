@@ -32,6 +32,7 @@ Aplikasi ini dibuat oleh Alfiki Diastama Afan Firdaus sebagai tugas  menggunakan
 
 ## Lisensi
 
+[Non-commercial License](LICENSE)
 Lisensi Aplikasi ini didistribusikan dengan lisensi Nonkomersial. Pengguna bebas menggunakan, mengubah, dan mendistribusikan aplikasi ini dengan syarat mencantumkan kredit kepada pembuat asli dan tidak menarik keuntungan finansial dari penggunaan aplikasi ini.
 
 ## Kontribusi
