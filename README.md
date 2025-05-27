@@ -41,7 +41,7 @@ Jika Anda ingin mengusulkan entri kata baku, melaporkan adanya kesalahan kata, a
 
 ## Kontak
 
-Jika terdapat masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi saya di alfiki.diastama@gmail.com.
+Jika terdapat masalah web, atau pertanyaan terkait aplikasi ini, silakan hubungi saya.
 
 ## Pembaruan
 
